@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #0d0d0d ;
+  color: white;
+  min-height: 100vh;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.navbar {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00d084;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size:17px;
+  transition: 0.3s;
+  padding:15px;
+}
+
+.nav-links li a:hover {
+  color: #00d084;
+}
+
+.btn-nav {
+  background: #00d084;
+  padding: 10px 18px;
+  border-radius: 25px;
+  color: black !important;
+  font-weight: bold;
+}
+.btn-nav:hover {
+  background: white;
+  color: black !important;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding: 140px 40px 40px; 
+  gap: 60px;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.text-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.buttons a {
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn-explore {
+  background: white;
+  color: black;
+}
+
+.btn-signin {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-explore:hover {
+  background: #00d084;
+  color: white;
+}
+
+.btn-signin:hover {
+  background: white;
+  color: black;
+}
+
+.highlight {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.get-started {
+  color: #00d084;
+  font-weight: bold;
+  text-decoration: none;
+}
+.backlogo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backlogo img {
+  display:relative;
+  width: 550px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.6);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+

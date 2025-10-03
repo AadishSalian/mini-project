@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" width="150px" height="50px">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="signin.html" class="btn-nav">Sign in</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrapper">
+    <form id="myForm">
+      <h1>Sign up</h1>
+
+      <div class="input-box">
+        <input type="email" id="email" placeholder="Email" required>
+        <span id="emailFeedback" class="error"></span>
+        <br><br>
+      </div>
+
+      <div class="input-box">
+        <input type="text" id="username" placeholder="Username" required>
+        <span id="usernameFeedback" class="error"></span>
+        <br><br>
+      </div>
+
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" required>
+        <span id="passwordFeedback" class="error"></span>
+        <br><br>
+      </div>
+
+      <button type="submit" class="btn">Create Account</button>
+
+      <div class="register-link">
+        <p>Already have an account? <a href="signin.html">Sign in</a></p>
+      </div>
+    </form>
+  </div>
+  <script src="signup.js"></script>
+</body>
+</html>
