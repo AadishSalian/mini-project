@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!email.validity.valid || password.value.length < 8 || username.value.length < 3) {
       event.preventDefault();
       alert('Please fill out the form correctly before submitting.');
+      return;
     }
+    event.preventDefault();
+    var user = { email: email.value.trim().toLowerCase(), username: username.value.trim(), password: password.value.trim() };
+    if(window.__auth){ window.__auth.saveAndLogin(user); }
+    else {
+      try { localStorage.setItem('ver2:user', JSON.stringify(user)); localStorage.setItem('ver2:loggedIn','true'); } catch(e){}
+    }
+    location.href = 'index.html';
   });
 });
