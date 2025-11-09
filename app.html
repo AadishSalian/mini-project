@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-page="app">
+  <nav class="navbar">
+   <a href="index.html"><div class="logo"><img src="logo.png" alt="" width="150px" height="50px"></div></a> 
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li id="featuresItem">
+        <a href="#" id="featuresToggle" class="dropdown-toggle">Features ▾</a>
+        <div class="dropdown-menu" id="featuresMenu">
+          <a href="app.html">Tracker</a>
+          <a href="overview.html">Overview</a>
+          <a href="analytics.html">Analytics</a>
+        </div>
+      </li>
+      <li><a href="#">About us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="signin.html" class="btn-nav" id="navAuth">Sign In</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="dashboard" aria-label="Summary cards">
+      <div class="card stat" id="card-balance">
+        <h3>Balance</h3>
+        <p class="value" id="summary-balance">₹0</p>
+      </div>
+      <div class="card stat" id="card-income">
+        <h3>Total Income</h3>
+        <p class="value" id="summary-income">₹0</p>
+      </div>
+      <div class="card stat" id="card-expense">
+        <h3>Total Expense</h3>
+        <p class="value" id="summary-expense">₹0</p>
+      </div>
+      <div class="card stat progress" id="card-budget">
+        <h3>Budget Usage</h3>
+        <div class="progress-bar" aria-label="Overall budget usage">
+          <div class="progress-fill" id="summary-budget-fill" style="width: 0%"></div>
+        </div>
+        <p class="muted"><span id="summary-budget-percent">0%</span> of monthly budget</p>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="left-col">
+        <section class="card form-card" aria-label="Add transaction">
+          <h3>Add Transaction</h3>
+          <form id="txForm">
+            <div class="grid-2">
+              <label>
+                <span>Type</span>
+                <select id="txType" required>
+                  <option value="income">Income</option>
+                  <option value="expense" selected>Expense</option>
+                </select>
+              </label>
+              <label>
+                <span>Category</span>
+                <select id="txCategory" required></select>
+              </label>
+              <label>
+                <span>Amount (₹)</span>
+                <input id="txAmount" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00" required>
+              </label>
+              <label>
+                <span>Date</span>
+                <input id="txDate" type="date" required>
+              </label>
+            </div>
+            <label class="full">
+              <span>Note</span>
+              <input id="txNote" type="text" placeholder="e.g., Groceries at Market">
+            </label>
+            <div class="actions">
+              <button class="btn primary" type="submit">Add</button>
+              <button class="btn ghost" type="reset">Clear</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card filters" aria-label="Filters">
+          <h3>Filter & Search</h3>
+          <div class="grid-3">
+            <label>
+              <span>From</span>
+              <input id="filterFrom" type="date">
+            </label>
+            <label>
+              <span>To</span>
+              <input id="filterTo" type="date">
+            </label>
+            <label>
+              <span>Category</span>
+              <select id="filterCategory"></select>
+            </label>
+            <label>
+              <span>Type</span>
+              <select id="filterType">
+                <option value="all" selected>All</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+            </label>
+            <label class="full">
+              <span>Search</span>
+              <input id="filterSearch" type="search" placeholder="Search by note">
+            </label>
+          </div>
+          <div class="actions">
+            <button id="clearFilters" class="btn ghost" type="button">Clear Filters</button>
+          </div>
+        </section>
+
+        <section class="card list-card" aria-label="Transactions">
+          <div class="list-header">
+            <h3>Transactions</h3>
+            <div class="list-actions">
+              <select id="sortBy" title="Sort by">
+                <option value="date_desc" selected>Newest</option>
+                <option value="date_asc">Oldest</option>
+                <option value="amount_desc">Amount ↓</option>
+                <option value="amount_asc">Amount ↑</option>
+              </select>
+              <button id="exportCsv" class="btn ghost" type="button">Export CSV</button>
+              <label class="btn ghost file">
+                <input id="importCsv" type="file" accept=".csv" hidden>
+                <span>Import CSV</span>
+              </label>
+            </div>
+          </div>
+          <ul id="txList" class="tx-list" role="list"></ul>
+        </section>
+      </div>
+
+      <div class="right-col">
+        <section class="card budgets" aria-label="Budgets">
+          <h3>Budgets</h3>
+          <ul id="budgetList" class="budget-list" role="list"></ul>
+          <form id="budgetForm" class="budget-form">
+            <div class="grid-2">
+              <label>
+                <span id="budgetCategoryLabel">Category</span>
+                <select id="budgetCategory" required></select>
+              </label>
+              <label>
+                <span id="budgetAmountLabel">Monthly Budget (₹)</span>
+                <input id="budgetAmount" type="number" min="0" step="0.01" placeholder="0.00" required>
+              </label>
+            </div>
+            <div class="actions">
+              <button class="btn primary" type="submit">Set Budget</button>
+            </div>
+          </form>
+        </section>
+        <section class="card chart-card" aria-label="Spending by category">
+          <h3>Spending by Category</h3>
+          <canvas id="categoryChart" height="220"></canvas>
+        </section>
+        <section class="card chart-card" aria-label="Cash flow over time">
+          <h3>Cash Flow</h3>
+          <canvas id="flowChart" height="220"></canvas>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="app-logic.js"></script>
+</body>
+</html>
+
+
