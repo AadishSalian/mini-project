@@ -573,10 +573,11 @@ select {
 }
 footer{
   background-color: black;
-  position: absolute;
+  position: sticky;
   bottom:0;
   width:100%;
   text-align: center;
   padding:20px;
 }
+
 
