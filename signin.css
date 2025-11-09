@@ -177,6 +177,14 @@ body {
   background: white;
   color: black !important;
 }
+footer{
+  background-color: black;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  text-align: center;
+  padding:20px;
+}
 @keyframes fadeIn{
       from { opacity: 0; }
   to { opacity: 1; }
@@ -186,4 +194,5 @@ body {
 }
 .valid{
   color:green;
+
 }
