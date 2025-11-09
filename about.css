@@ -571,3 +571,11 @@ select {
 .about-section p:last-child {
   margin-bottom: 0;
 }
+footer{
+  background-color: black;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  text-align: center;
+  padding:20px;
+}
