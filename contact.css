@@ -602,6 +602,14 @@ select {
 .contact-card a:hover {
   text-decoration: underline;
 }
+footer{
+  background-color: black;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  text-align: center;
+  padding:20px;
+}
 
 @media (max-width: 768px) {
   .contact-section {
@@ -612,3 +620,4 @@ select {
     font-size: 2rem;
   }
 }
+
