@@ -531,7 +531,14 @@ select {
   border-radius: 20px;
   box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
 }
-
+footer{
+  background-color: black;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  text-align: center;
+  padding:20px;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -540,4 +547,5 @@ select {
   to {
     opacity: 1;
   }
+
 }
