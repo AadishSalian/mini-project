@@ -119,13 +119,13 @@ body {
   gap: 60px;
 }
 
-/* Use block layout for app pages so grids can span full width */
+
 main.container {
   display: block;
   align-items: stretch;
 }
 
-/* App UI minimal styles */
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -421,13 +421,13 @@ select {
   width: 0%;
 }
 
-/* Charts responsive */
+
 .chart-card canvas {
   width: 100% !important;
   height: auto !important;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 1200px) {
   .dashboard {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -541,7 +541,7 @@ select {
     opacity: 1;
   }
 }
-/* About Section Styles */
+
 .about-section {
   padding: 120px 60px;
   background: #111;
@@ -579,3 +579,4 @@ footer{
   text-align: center;
   padding:20px;
 }
+
